@@ -3,12 +3,13 @@ class RoomsController < ApplicationController
   before_action :find_room, only: [:show, :destroy]
 
   def index
-  	@room = Room.new
-  	@rooms = Room.all
+    @room = Room.new
+  	@rooms = Room.order('created_at DESC')
   end
 
   def show
     @comments = @room.comments
+    @room_owner = @room.user
     @new_comment = Comment.new(room: @room)
     respond_to do |format|
       format.html
@@ -17,14 +18,22 @@ class RoomsController < ApplicationController
     end
   end
 
+  def new
+    @room = Room.new
+  end
+
   def create
   	@room = current_user.rooms.new(room_params)
-  	if @room.save
-    	flash[:success] = "Room created!"
-    	redirect_to root_url
-    else
-      flash[:danger] = "Room doesn't created!"
-      redirect_to root_url
+  	respond_to do |format|
+      if @room.save
+      	flash.now[:success] = "Room created!"
+      	format.html { redirect_to rooms_url }
+        format.js
+      else
+        flash.now[:danger] = "Room doesn't created!"
+        format.html { redirect_to rooms_url }
+        format.js
+      end
     end
   end
 

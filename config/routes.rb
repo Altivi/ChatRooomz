@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get   'signup'   => 'users#new'
   post  'signup'   => 'users#create'
+  get   '/users/:id'=> 'users#show'
 
   ######### SESSIONS CONTROLLER #############
   
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :index]
   end
 
+  post '/'         => 'rooms#create'
   root 'rooms#index'
 
 

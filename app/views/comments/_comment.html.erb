@@ -2,7 +2,11 @@
   <% if !comment.user.nil? %>
   <span>
     <h4>
-      <small><%= comment.user.name %> says:</small>
+      <% if room_owner?(comment) %>
+        <small><%= comment.user.name %>♛ says:</small>
+      <% else %>
+        <small><%= comment.user.name %> says:</small>
+      <% end %>
       <small class="pull-right" ><%= comment.created_at.strftime("%H:%M") %></small>
 
     </h4>

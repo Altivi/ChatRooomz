@@ -12,7 +12,7 @@
                 <div class="panel-footer">
                     <div class="form-group">
                         <%= form_for [@room, @new_comment], remote: true, class: "input-group" do |f| %>
-                            <%= f.text_field :content, class: "form-control", :placeholder => "Type your message here..." %>
+                            <%= f.text_field :content, class: "form-control", id: "text-field-comment", :placeholder => "Type your message here..." %>
                             <span class="input-group-btn">
                                 <%= f.submit "Comment", id: "btn-chat", class: "btn btn-warning btn-sm" %>
                             </span>

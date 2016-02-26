@@ -64,13 +64,25 @@
 
 .glyphicon-plus-sign {
     display: block;
+    color: orange;
     width: 100px;
+    text-decoration: none !important;
+    border: 0;
+    outline: none !important ;
     margin: 0 auto;
     font-size: 150px;
     &:hover {
-      text-decoration: none;
+      text-decoration: none !important;
       border: 0;
-  }
+      outline: none !important;
+      color: #D88D03; 
+    };
+    &:active {
+      color: #D88D03;
+    };
+    &:focus {
+      color: orange;
+    }
 }
 
 .room {
@@ -156,4 +168,8 @@
 
 .ava-user {
   height: 35px;
+}
+
+.comment {
+  max-height: 120px;
 }

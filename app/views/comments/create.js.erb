@@ -2,4 +2,5 @@
 	$('div#chat-panel').append("<%= escape_javascript(render @comment) %>");
 	var foo = document.getElementById('chat-panel');
 	foo.scrollTop = foo.scrollHeight;
+	$("#text-field-comment").val('');
 <% end %>
