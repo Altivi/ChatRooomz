@@ -10,9 +10,7 @@ user1 = User.create(name: "Alex", email: "altivi.prog@gmail.com", password: "123
 user2 = User.create(name: "User1", email: "user1@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
 user3 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
 
-
 50.times do |n|
-	title = Faker::Lorem.sentence(1)
-	Room.create(title: title,
-				user_id: user1.id)
+	Room.create(title: Faker::Lorem.sentence(3),
+				user: user1)
 end

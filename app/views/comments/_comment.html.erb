@@ -1,4 +1,4 @@
-<%= div_for comment do %>
+<%= div_for comment, class: "media" , data: { id: comment.id } do %>
   <% if !comment.user.nil? %>
   <span>
     <h4>
@@ -9,7 +9,7 @@
   </span>
   <div class="well well-sm">
     <small><%= image_tag comment.user.avatar.url(:thumb) %></small>
-    <%= comment.content %>
+    <small><%= comment.content %></small>
   </div>
   <% end %>
 <% end %>

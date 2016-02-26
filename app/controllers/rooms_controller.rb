@@ -22,6 +22,9 @@ class RoomsController < ApplicationController
   	if @room.save
     	flash[:success] = "Room created!"
     	redirect_to root_url
+    else
+      flash[:danger] = "Room doesn't created!"
+      redirect_to root_url
     end
   end
 

@@ -62,25 +62,42 @@
   }
 }
 
-.glyphicon-plus {
-    font-size: 50px;
+.glyphicon-plus-sign {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    font-size: 150px;
+    &:hover {
+      text-decoration: none;
+      border: 0;
+  }
 }
 
 .room {
-  width: 200px;
-  height: 200px;
+  width: 195px;
+  height: 195px;
   float: left;
   display: inline-block;
   background-color: orange;
   margin: 15px;
   overflow: hidden;
+  border-radius: 20px;
+  text-align: center;
   a {
-    float:left;
+    font-size: 25px;
+    color: white;
   };
 }
 
 .room-info {
   heigth: 150px;
+  h3 {
+    font-weight: bold;
+  }
+  span {
+    display:block;
+    margin-top: 40px;
+  }
 }
 
 .panel-heading
@@ -125,10 +142,18 @@
 
 #chat-panel {
   min-height: 300px;
-  max-height: 600px;
-  overflow-y:scroll;
+  max-height: 700px;
+  overflow-y: scroll;
 }
 
 #btn-chat {
   float: right;
+}
+
+.well .well-sm small img {
+  max-width: 30px !important; 
+}
+
+.ava-user {
+  height: 35px;
 }
