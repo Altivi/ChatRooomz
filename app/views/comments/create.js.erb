@@ -1,0 +1,2 @@
+$('div#chat-panel').append("<%= escape_javascript(render @comment) %>");
+$("div#chat-panel").animate({ scrollTop: $(document).height() }, "slow");

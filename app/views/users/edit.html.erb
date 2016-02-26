@@ -1,0 +1,27 @@
+<% provide(:title, 'Edit') %>
+
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-4">
+    <h2>Update information</h2>
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+	  
+	  <%= f.label :avatar, "Avatar" %>
+	  <%= f.file_field :avatar, class: "form-control-file" %>
+
+      <%= f.submit "Update info", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

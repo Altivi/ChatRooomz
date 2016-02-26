@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9  col-md-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> <%= @room.title %>
+                    
+                </div>
+                <div class="panel-body" id="chat-panel">
+                    <%= render @comments %>
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        <%= form_for [@room, @new_comment], remote: true, class: "input-group" do |f| %>
+                            <%= f.text_field :content, class: "form-control", :placeholder => "Type your message here..." %>
+                            <span class="input-group-btn">
+                                <%= f.submit "Comment", id: "btn-chat", class: "btn btn-warning btn-sm" %>
+                            </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

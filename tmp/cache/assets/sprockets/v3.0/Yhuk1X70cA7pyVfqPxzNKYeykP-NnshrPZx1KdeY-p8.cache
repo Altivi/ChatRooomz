@@ -1,0 +1,15 @@
+I"ñ(function() {
+  window.Poll = function() {
+    return setTimeout(function() {
+      return $.get('/comments');
+    }, 1000);
+  };
+
+  jQuery(function() {
+    if ($('#chat-panel').size() > 0) {
+      return Poll();
+    }
+  });
+
+}).call(this);
+:ET

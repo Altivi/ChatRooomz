@@ -1,0 +1,15 @@
+<%= div_for comment do %>
+  <% if !comment.user.nil? %>
+  <span>
+    <h4>
+      <small><%= comment.user.name %> says:</small>
+      <small class="pull-right" ><%= comment.created_at.strftime("%H:%M") %></small>
+
+    </h4>
+  </span>
+  <div class="well well-sm">
+    <small><%= image_tag comment.user.avatar.url(:thumb) %></small>
+    <%= comment.content %>
+  </div>
+  <% end %>
+<% end %>

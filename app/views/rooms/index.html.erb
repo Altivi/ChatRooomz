@@ -1,0 +1,29 @@
+<%= link_to "", new_room_path , class: "glyphicon glyphicon-plus", data: { toggle: "modal", target: "#newRoomForm" } %>
+
+<%= render @rooms %>
+
+<!-- Modal -->
+<div class="modal fade" id="newRoomForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create your own room!</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @room do |f| %>
+	      <%= render 'shared/error_messages', object: f.object %>
+
+	      <%= f.label :title %>
+	      <%= f.text_field :title, class: 'form-control' %>
+
+	      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Create!", class: "btn btn-primary" %>
+	    <% end %>
+      </div>
+    </div>
+  </div>
+</div>
