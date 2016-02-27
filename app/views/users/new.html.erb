@@ -22,8 +22,8 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 	  
-	  <%= f.label :avatar, "Avatar" %>
-	  <%= f.file_field :avatar, class: "form-control-file" %>
+	    <%= f.label :avatar, "Avatar (if no file chosen, default will be used)" %>
+	    <%= f.file_field :avatar, class: "form-control-file" %>
 
       <%= f.submit "Sign Up", class: "btn btn-primary" %>
     <% end %>

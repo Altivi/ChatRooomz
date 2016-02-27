@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create(name: "Alex", email: "altivi.prog@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
-user2 = User.create(name: "User1", email: "user1@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
-user3 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
+user1 = User.create(name: "Alex", email: "altivi.prog@gmail.com", password: "123123", password_confirmation: "123123")
+user2 = User.create(name: "User1", email: "user1@gmail.com", password: "123123", password_confirmation: "123123")
+user3 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123")
 
-50.times do |n|
-	Room.create(title: Faker::Lorem.sentence(2),
-				user: user1)
+60.times do |n|
+	Room.create(title: "Room #{n}",
+				user: [user1, user2, user3].sample )
 end

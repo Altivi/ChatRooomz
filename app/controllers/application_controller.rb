@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
   def logged_in_user
       unless current_user
         store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
+        flash.now[:danger] = "Please log in."
       end
     end
 

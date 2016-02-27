@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   
   before_action :find_room, only: [:show, :destroy]
+  before_action :logged_in_user, only: [:show, :create]
 
   def index
     @room = Room.new

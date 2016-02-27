@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	has_many :comments, dependent: :destroy
 	has_many :rooms 						#for opportunity to be room creator
-	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", mini: "50x50#"}
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", mini: "50x50#"}, default_url: ":style/default_avatar.png"
 
   	
 	######################################################
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   	validates :password, presence: true, 
   					     length: { minimum: 6 }, 
   					     allow_nil: true
-  	validates :avatar, attachment_presence: true
+  	# validates :avatar, attachment_presence: true
   	validates_attachment_content_type :avatar,
  						 content_type: /\Aimage\/.*\Z/,
  						 presence: true

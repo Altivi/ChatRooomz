@@ -4,5 +4,5 @@ class Room < ActiveRecord::Base
 	belongs_to :user
 
 	validates :title,    presence: true, 
-					     length: { maximum: 20 }
+					     length: { maximum: 30 }
 end
