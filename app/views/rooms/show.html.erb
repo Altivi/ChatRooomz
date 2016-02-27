@@ -4,18 +4,29 @@
             <div class="panel panel-primary">
                 <div class="panel-heading" id="accordion">
                     <span class="glyphicon glyphicon-comment"></span> <%= @room.title %>
-                    
+                    <% if current_user == @room.user %>
+                      <%= link_to 'Delete room', room_path(@room), method: :delete, data: {confirm: "Are you sure?"} %>
+                    <% end %>
                 </div>
                 <div class="panel-body" id="chat-panel">
                     <%= render @comments %>
                 </div>
                 <div class="panel-footer">
                     <div class="form-group">
-                        <%= form_for [@room, @new_comment], remote: true, class: "input-group" do |f| %>
-                            <%= f.text_field :content, class: "form-control", id: "text-field-comment", :placeholder => "Type your message here..." %>
-                            <span class="input-group-btn">
-                                <%= f.submit "Comment", id: "btn-chat", class: "btn btn-warning btn-sm" %>
-                            </span>
+                        <%= form_for [@room, @new_comment], remote: true do |f| %>
+                            <div class="input-group">
+                                <% if current_user %>
+                                    <%= f.text_field :content, class: "form-control  input-sm", id: "text-field-comment", :placeholder => "Type your message here..." %>
+                                    <span class="input-group-btn">
+                                        <%= f.submit "Comment", id: "btn-chat", class: "btn btn-warning btn-sm" %>
+                                    </span>
+                                <% else %>
+                                    <%= f.text_field :content, class: "form-control  input-sm", id: "text-field-comment", :placeholder => "PLEASE LOGIN TO WRITE MESSAGES...", disabled: true%>
+                                    <span class="input-group-btn">
+                                        <%= f.submit "Comment", id: "btn-chat", class: "btn btn-warning btn-sm", disabled: true %>
+                                    </span>
+                                <% end %>
+                            </div>
                         <% end %>
                     </div>
                 </div>

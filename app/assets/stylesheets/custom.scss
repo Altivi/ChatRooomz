@@ -1,10 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.btn {
-	margin-top: 10px;
-}
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -97,7 +93,10 @@
   text-align: center;
   a {
     font-size: 25px;
-    color: white;
+    background-color: #D88D03;
+    &:hover {
+      background-color: black; 
+    };
   };
 }
 
@@ -106,11 +105,18 @@
   h3 {
     font-weight: bold;
   }
-  span {
+}
+
+.title {
+  display: block;
+  height: 100px;
+  overflow: hidden;
+}
+
+.time_created span {
     display:block;
     margin-top: 40px;
   }
-}
 
 .panel-heading
 {
@@ -162,14 +168,32 @@
   float: right;
 }
 
-.well .well-sm small img {
-  max-width: 30px !important; 
+.comment-area {
+  
+  img {
+    max-width: 35px !important;
+    padding-bottom: 5px;
+  }
+  p {
+    display: block;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    word-break: break-all;
+    padding: 10px;
+    color: #4d4d4d;
+  }
 }
 
-.ava-user {
-  height: 35px;
+#session_password {
+  margin-bottom: 10px;
 }
 
-.comment {
-  max-height: 120px;
+#user_avatar {
+  margin-bottom: 10px;
+}
+
+#accordion a {
+  color: red;
+  float: right;
+  font-size: 20px;
 }

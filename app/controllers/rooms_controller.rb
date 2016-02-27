@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @room = Room.new
-  	@rooms = Room.order('created_at DESC')
+  	@rooms = Room.includes(:user).order('created_at DESC')
   end
 
   def show
@@ -13,7 +13,6 @@ class RoomsController < ApplicationController
     @new_comment = Comment.new(room: @room)
     respond_to do |format|
       format.html
-      format.json { render :json => @comments.to_json(include: :user) }
       format.js
     end
   end
@@ -38,8 +37,15 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-	@room.destroy
-	redirect_to root_url
+    @room = Room.find(params[:id])
+    @room.destroy if current_user.id == @room.user_id
+    respond_to do |format|
+      format.html { 
+        flash[:success] = "Room successfully deleted"
+        redirect_to user_path(@room.user) 
+      }
+      format.js
+    end
   end
 
   private

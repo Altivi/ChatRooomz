@@ -11,6 +11,6 @@ user2 = User.create(name: "User1", email: "user1@gmail.com", password: "123123",
 user3 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image)
 
 50.times do |n|
-	Room.create(title: Faker::Lorem.sentence(3),
+	Room.create(title: Faker::Lorem.sentence(2),
 				user: user1)
 end

@@ -1,19 +1,20 @@
 <%= div_for comment, class: "media" , data: { id: comment.id } do %>
   <% if !comment.user.nil? %>
   <span>
-    <h4>
-      <% if room_owner?(comment) %>
-        <small><%= comment.user.name %>♛ says:</small>
-      <% else %>
-        <small><%= comment.user.name %> says:</small>
-      <% end %>
-      <small class="pull-right" ><%= comment.created_at.strftime("%H:%M") %></small>
-
-    </h4>
+    
   </span>
-  <div class="well well-sm">
-    <small><%= image_tag comment.user.avatar.url(:thumb) %></small>
-    <small><%= comment.content %></small>
+  <div class="comment-area">
+    <%= image_tag comment.user.avatar.url(:mini) %>
+      <% if room_owners_comment?(comment) %>
+        <%= comment.user.name %>♛ says:
+      <% else %>
+        <%= comment.user.name %> says:
+      <% end %>
+      
+      <span class="pull-right"> <%= comment.created_at.strftime("%H:%M") %></span>
+
+    
+    <p><%= comment.content %></p>
   </div>
   <% end %>
 <% end %>

@@ -1,6 +1,7 @@
-<%= link_to "", new_room_path , class: "glyphicon glyphicon-plus-sign", data: { toggle: "modal", target: "#newRoomForm" } %>
-
-<div id="all-rooms">
+<% if current_user %>
+  <%= link_to "", new_room_path , class: "glyphicon glyphicon-plus-sign", data: { toggle: "modal", target: "#newRoomForm" } %>
+<% end %>
+<div class="col-md-14" id="all-rooms">
   <%= render @rooms %>
 </div>
 

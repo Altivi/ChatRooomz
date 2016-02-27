@@ -16,7 +16,7 @@
             </ul>
           </li>
           <li>
-           <div id = "menu-image" > <%= image_tag current_user.avatar.url(:thumb) %></div>
+           <div> <%= image_tag current_user.avatar.url(:mini) %></div>
            </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>

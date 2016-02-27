@@ -1,7 +1,7 @@
 <%= div_for room do %>
 	<div class="room-info">
-		<h3 class="title"><%= room.title %></h3>
+		<span class="title"><h3><%= room.title %></h3></span>
 		<span class="time_created">Creator: <%= room.user.name %></span>
 	</div>
-	<%= link_to "Drop in...", room, class: "btn btn-primary " %>
+	<%= link_to "Go inside!", room, class: "btn btn-primary " %>
 <% end %>

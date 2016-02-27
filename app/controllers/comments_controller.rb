@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 	def index
 		@room = Room.find(params[:room_id])
-		@comments = @room.comments.order('created_at ASC')
+		@comments = @room.comments.includes(:user).order('created_at ASC')
 	end
 
 	def create

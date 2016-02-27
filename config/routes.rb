@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   post '/'         => 'rooms#create'
-  root 'rooms#index'
+  root                'rooms#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
