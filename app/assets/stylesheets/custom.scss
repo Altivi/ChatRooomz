@@ -197,3 +197,21 @@
   float: right;
   font-size: 20px;
 }
+
+.glyphicon-remove-sign {
+    color: red;
+    text-decoration: none !important;
+    font-size: 15px;
+    &:hover {
+      text-decoration: none !important;
+      border: 0;
+      outline: none !important;
+      color: #780000; 
+    };
+    &:active {
+      color: red;
+    };
+    &:focus {
+      color: red;
+    }
+}

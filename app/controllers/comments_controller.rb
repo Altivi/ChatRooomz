@@ -1,14 +1,30 @@
 class CommentsController < ApplicationController
 
+	before_action :find_room, only: [:index, :create, :destroy]
+
 	def index
-		@room = Room.find(params[:room_id])
-		@comments = @room.comments.includes(:user).order('created_at ASC')
+		if current_user
+	      	@comments = @room.comments.where.not("deleted = ? AND user_id = ?", true, current_user.id).includes(:user).order('created_at ASC')
+	    else
+	    	@comments = @room.comments.includes(:user).order('created_at ASC')
+	    end
 	end
 
 	def create
-		@room = Room.find(params[:room_id])
-	    @comment = @room.comments.create(comment_params)
+	    @comment = @room.comments.create(comment_params.merge(user_id: current_user.id))
 	    respond_to do |format|
+			format.html { redirect_to room_url(@room) }
+			format.js
+		end
+	end
+
+	def destroy
+		@post = Room.find(params[:room_id])
+		@comment = @post.comments.find(params[:id])
+		if @comment.user_id == current_user.id
+			@comment.update_columns(deleted: true)
+		end
+		respond_to do |format|
 			format.html { redirect_to room_url(@room) }
 			format.js
 		end
@@ -16,12 +32,12 @@ class CommentsController < ApplicationController
 
 	private
 
+	def find_room
+		@room = Room.find(params[:room_id])
+	end
+
 	def comment_params
-		if current_user
-			hash = params.require(:comment).permit(:content)
-			hash[:user_id] = current_user.id
-			return hash
-		end
+		params.require(:comment).permit(:content)
 	end
 
 end

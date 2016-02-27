@@ -1,8 +1,5 @@
 <%= div_for comment, class: "media" , data: { id: comment.id } do %>
   <% if !comment.user.nil? %>
-  <span>
-    
-  </span>
   <div class="comment-area">
     <%= image_tag comment.user.avatar.url(:mini) %>
       <% if room_owners_comment?(comment) %>
@@ -11,7 +8,12 @@
         <%= comment.user.name %> says:
       <% end %>
       
-      <span class="pull-right"> <%= comment.created_at.strftime("%H:%M") %></span>
+      <span class="pull-right">
+        <% if current_user == comment.user %>
+          <%= link_to "", room_comment_path(@room, comment),class: "glyphicon glyphicon-remove-sign" , method: :delete, remote: true %>
+        <% end %>
+        <%= comment.created_at.strftime("%H:%M") %>
+      </span>
 
     
     <p><%= comment.content %></p>

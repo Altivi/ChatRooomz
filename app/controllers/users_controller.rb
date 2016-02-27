@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:info] = "You have successfully signed up!"
-      redirect_to root_url
+      redirect_back_or root_url
     else
       render 'new'
     end

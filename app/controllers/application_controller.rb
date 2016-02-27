@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def logged_in_user
-      unless current_user
-        store_location
-        flash.now[:danger] = "Please log in."
-      end
+    unless current_user
+      store_location
+      flash.now[:danger] = "Please log in."
     end
+  end
 
 end
