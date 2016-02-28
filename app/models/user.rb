@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   	validates :password, presence: true, 
   					     length: { minimum: 6 }, 
   					     allow_nil: true
-  	# validates :avatar, attachment_presence: true
+  	validates :avatar, attachment_presence: true
   	validates_attachment_content_type :avatar,
  						 content_type: /\Aimage\/.*\Z/,
  						 presence: true
