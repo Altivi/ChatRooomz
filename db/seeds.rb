@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create(name: "User1", email: "user1@gmail.com", password: "123123", password_confirmation: "123123")
-user2 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123")
-user3 = User.create(name: "User3", email: "user3@gmail.com", password: "123123", password_confirmation: "123123")
+user1 = User.create(name: "User1", email: "user1@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image("my-own-slug", "50x50"))
+user2 = User.create(name: "User2", email: "user2@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image("my-own-slug", "50x50"))
+user3 = User.create(name: "User3", email: "user3@gmail.com", password: "123123", password_confirmation: "123123", avatar: Faker::Avatar.image("my-own-slug", "50x50"))
 
 60.times do |n|
 	Room.create(title: "Room #{n}",
