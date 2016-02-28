@@ -1,7 +1,7 @@
 $('#chat-panel').html('<%= j render @comments %>');
 console.log(($("#chat-panel").scrollTop() + 700 == $("#chat-panel")[0].scrollHeight));
-console.log(($("#chat-panel").scrollTop() + " " + $("#chat-panel")[0].scrollHeight))
-if ($("#chat-panel")[0].scrollHeight - $("#chat-panel").scrollTop() <= 805 ) {
+console.log(($("#chat-panel").scrollTop() + " " + $("#chat-panel")[0].scrollHeight));
+if ($("#chat-panel")[0].scrollHeight - $("#chat-panel").scrollTop() == 805 ) {
 	$('#chat-panel div:last-child').show('slow', function() {
 	 	$("#chat-panel").scrollTop($("#chat-panel")[0].scrollHeight);
 	});

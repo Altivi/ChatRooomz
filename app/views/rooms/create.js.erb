@@ -1,5 +1,5 @@
 <% if @room.new_record? %>
-alert('Your room cannot be saved. Maximum title length is 20 characters.');
+alert('Your room cannot be saved. Wrong name! (Maximum length 30)');
 <% else %>
 $('div#all-rooms').prepend("<%= escape_javascript(render @room) %>");
 <% end %>
