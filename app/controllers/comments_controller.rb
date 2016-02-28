@@ -11,7 +11,10 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-	    @comment = @room.comments.create(comment_params.merge(user_id: current_user.id))
+	    @comment = @room.comments.new(comment_params.merge(user_id: current_user.id))
+	    unless @comment.save
+	    	flash.now[:danger] = "Room doesn't created!"
+	    end
 	    respond_to do |format|
 			format.html { redirect_to room_url(@room) }
 			format.js

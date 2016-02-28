@@ -48,8 +48,8 @@
 }
 
 #menu-image {
-  width: 65px;
-  height: 65px;
+  max-width: 65px;
+  max-height: 90px;
   display: inline-block;
   overflow: hidden;
   img {
@@ -214,4 +214,10 @@
     &:focus {
       color: red;
     }
+}
+
+.header_ava {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
 }

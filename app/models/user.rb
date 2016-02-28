@@ -3,8 +3,11 @@ class User < ActiveRecord::Base
 	has_secure_password
 	has_many :comments, dependent: :destroy
 	has_many :rooms 						#for opportunity to be room creator
-	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", mini: "50x50#"}, default_url: ":style/default_avatar.png"
-
+	#has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", mini: "50x50#"}, default_url: ":style/default_avatar.png"
+	has_attached_file :avatar,
+	    :storage => :dropbox,
+	    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+	    :dropbox_options => {  path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } }
   	
 	######################################################
 
